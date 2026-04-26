@@ -1,0 +1,9 @@
+{
+  "name": "youtube_mpv",
+  "description": "MPV Native Messaging Host",
+  "path": "host.bat",
+  "type": "stdio",
+  "allowed_extensions": [
+    "youtube-mpv@myextension.local"
+  ]
+}

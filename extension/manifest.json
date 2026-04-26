@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Play YouTube in MPV",
+  "version": "1.0",
+  "description": "Right-click a YouTube link or page to open it in MPV.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  },
+  "permissions": [
+    "contextMenus",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://youtube.com/*",
+    "*://youtu.be/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-mpv@myextension.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}
