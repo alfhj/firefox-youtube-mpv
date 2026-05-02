@@ -9,7 +9,8 @@
   },
   "permissions": [
     "contextMenus",
-    "nativeMessaging"
+    "nativeMessaging",
+    "scripting"
   ],
   "host_permissions": [
     "*://*.youtube.com/*",

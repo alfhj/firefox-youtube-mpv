@@ -17,10 +17,17 @@ process.stdin.on('data', chunk => {
             const msg = JSON.parse(msgString);
             if (msg.url) {
                 // By adding /wait, cmd.exe will stay alive until mpv.exe finishes playing the video.
-                const launcher = spawn('cmd.exe', ['/c', 'start', '/wait', '""', 'mpv.exe', msg.url], {
+                const args = ['/c', 'start', '/wait', '""', 'mpv.exe'];
+                if (msg.start) {
+                    args.push(`--start=${msg.start}`);
+                }
+                args.push(`"${msg.url}"`);
+
+                const launcher = spawn('cmd.exe', args, {
                     detached: true,
                     windowsHide: true,
-                    stdio: 'ignore'
+                    stdio: 'ignore',
+                    windowsVerbatimArguments: true
                 });
                 
                 // When mpv finishes, cmd.exe exits, triggering this callback, which shuts down Node cleanly.
